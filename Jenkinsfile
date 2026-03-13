@@ -7,5 +7,11 @@ pipeline{
 
             }
         }
+          stage('Trigger Next Pipeline') {
+            steps {
+                echo 'Passing the baton to Pipeline-B...'
+                build job: 'Running SH commands', wait: false
+            }
+        }
     }
 }
